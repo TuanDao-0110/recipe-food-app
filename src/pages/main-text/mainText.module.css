@@ -1,0 +1,35 @@
+.main-text {
+    position: absolute;
+    left: 13%;
+    top: 52%;
+    transform: translate(-13%, -42%);
+    /* line-height: 0; */
+}
+.main-text h2 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--btntext);
+}
+
+.main-text h1 {
+    font-size: 4.5rem;
+    font-weight: 500;
+    color: var(--navText);
+    margin: 2rem;
+}
+
+.main-text p {
+    font-size: 1.2rem;
+    color: var(--btntext);
+    margin-bottom: 1rem;
+}
+
+.main-text a {
+    /* width: 150px; */
+    /* height: 40px; */
+    /* outline: none; */
+    /* border-radius: 5px;
+  font-size: 15px;
+  font-weight: 200;
+  padding: 1rem; */
+}
