@@ -1,17 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Roboto:ital,wght@0,100;1,700;1,900&family=Rubik+Vinyl&family=Signika+Negative:wght@300;400;600;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
 :root {
     --hover: rgba(255, 255, 255, 0.4);
-    --active: rgba(255, 255, 255, 0.1);
-    --navText: #b9f0cb;
+    --active: rgba(170, 183, 178, 0.935);
+    --navText: #309351;
     --btnbg: #60c390;
     --btnsd1: #408360;
     --btnsd2: #98e8c0;
-    --btntext: #fff;
+    --btntext: rgb(255, 255, 255);
     --btnborder: #ececec;
-    --headerdark:#194528;
-    --headerlight:#b9f0cb;
-    --textwhitelight:#ececec;
-    --textwhitedark:#aaa6a6;
+    --headerdark: #194528;
+    --headerlight: #b9f0cb;
+    --textwhitelight: #ececec;
+    --textwhitedark: #aaa6a6;
+    /* --bg: linear-gradient(180deg, #fbb667 60%, #FAECD5 80%); */
+    --bg: #14cc8842;
 }
 * {
     font-family: "Urbanist", sans-serif;
@@ -34,6 +36,7 @@
     border: solid 4px var(--btnborder);
     transition: all 0.25s;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .button {
@@ -57,4 +60,13 @@ a.active {
     background: var(--active);
     /* border-radius: 3px; */
     color: var(--btntext);
+}
+
+/* main task */
+
+.main {
+    position: absolute;
+    top: 10rem;
+    left: 0;
+    height: 100vh;
 }

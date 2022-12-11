@@ -5,19 +5,19 @@ export default function Navigation() {
   return (
     <nav className={style["nav"]}>
       <div className="">
-        <a href="#">
+        <Link to={"/"}>
           <img src={require("../../img/logo.png")} alt="" width={"100px"} srcset="" />
-        </a>
+        </Link>
       </div>
       <ul className="">
         <li>
-          <NavLink to={"/"}>Hello</NavLink>
+          <NavLink to={"/"}>home</NavLink>
         </li>
         <li>
-          <NavLink to={'/add'}>add recipe</NavLink>
+          <NavLink to={"/add"}>add recipe</NavLink>
         </li>
         <li>
-          <NavLink to={'/recipe_list'}>recipe list</NavLink>
+          <NavLink to={"/recipe_list"}>recipe list</NavLink>
         </li>
       </ul>
     </nav>

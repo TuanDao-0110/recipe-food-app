@@ -25,5 +25,5 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: var(--hover)
+    background: var(--hover);
 }
