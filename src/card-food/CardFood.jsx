@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { handleGetCountryFlag } from "../service/sevices";
 import style from "./cardfood.module.css";
-export default function CardFood({ item }) {
+export default function CardFood({ item, setPopup, setDetail }) {
   const { country, name, cooking_time, nutrition, image } = item;
   const [flagState, setFlagState] = useState("  🇹🇭");
 
@@ -34,7 +34,15 @@ export default function CardFood({ item }) {
             <span className="material-symbols-outlined  ">nutrition</span>
             <span>Nutritions: {renderNutrition()}</span>
           </p>
-          <button className="button text-sm p-2 my-5">more details</button>
+          <button
+            onClick={() => {
+              setDetail(item);
+              setPopup(true);
+            }}
+            className="button text-sm p-2 my-5"
+          >
+            more details
+          </button>
         </div>
       </div>
     </div>

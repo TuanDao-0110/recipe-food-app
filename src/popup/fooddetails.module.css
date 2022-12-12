@@ -1,0 +1,11 @@
+.pop_up {
+    /* From https://css.glass */
+    background: rgba(100, 116, 89, 0.561);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(44, 119, 22, 0.895);
+    backdrop-filter: blur(8.4px);
+    -webkit-backdrop-filter: blur(8.4px);
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
