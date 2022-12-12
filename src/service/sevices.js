@@ -2,10 +2,10 @@ import axios from "axios"
 import { BASE_URL, COUNTRY_URL_ALL, COUNTRY_URL_FLAG, RECIPES } from "./ultilities"
 export const handleGetCountryFlag = async (countryName) => {
     try {
-        const data = await axios({
+        const {data} = await axios({
             url: `${COUNTRY_URL_FLAG}${countryName}`
         })
-        const { flag } = data
+        const { flag } = data[0]
         return flag
     } catch (error) {
         console.log(error)
@@ -24,7 +24,7 @@ export const handleGetAllCoutriesInfo = async () => {
 
 export const hanldeGetAllRecipe = async () => {
     try {
-        const data = await axios({
+        const { data, status } = await axios({
             url: `${BASE_URL}/${RECIPES}`
         })
         return data
@@ -34,12 +34,12 @@ export const hanldeGetAllRecipe = async () => {
 }
 export const handlePostNewRecipe = async (newRecipe, navigate) => {
     try {
-        const data = await axios({
+        const { data, status } = await axios({
             url: `${BASE_URL}/${RECIPES}`,
             method: 'post',
             data: newRecipe
         })
-        if (data) {
+        if (status === 200) {
             alert('add success')
             navigate('/recipe_list')
         }

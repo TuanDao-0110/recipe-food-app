@@ -17,7 +17,7 @@
 }
 
 .card .content {
-    width: 80%;
+    /* width: 80%; */
     margin: auto;
 }
 
@@ -60,9 +60,10 @@
 .card .content h1 {
     color: var(--headerdark);
     font-weight: bolder;
-    font-size: x-large;
+    font-size:larger;
 }
 
-.card p {
+.card .details {
+    margin-top: 1rem;
     font-size: smaller;
 }
