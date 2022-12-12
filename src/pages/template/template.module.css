@@ -1,6 +1,6 @@
 .main {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     background: var(--bg);
 }
@@ -13,5 +13,3 @@
     width: 100vw;
     object-fit: cover;
 }
-
-
