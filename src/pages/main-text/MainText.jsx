@@ -9,7 +9,7 @@ export default function MainText() {
       <p>let enjoy our food</p>
 
       <Link>
-        <button className="button"> let find out</button>
+        <button className="button px-5 py-2"> let find out</button>
       </Link>
     </div>
   );
