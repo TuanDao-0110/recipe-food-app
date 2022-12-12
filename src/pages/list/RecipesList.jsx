@@ -21,7 +21,7 @@ export default function RecipesList() {
         <div className="flex flex-wrap gap-5 mt-5 justify-center h-full relative">
           <FoodDetails popup={popup} setPopup={setPopup} detail={detail} />
           {state?.slice(0, load).map((item, key) => {
-            return <CardFood key={key} item={item} setPopup={setPopup} setDetail={setDetail}></CardFood>;
+            return <CardFood key={key} item={item} setPopup={setPopup}  setDetail={setDetail}></CardFood>;
           })}
         </div>
         <div className="flex justify-center mt-10 cursor-pointer">
