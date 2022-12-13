@@ -1018,6 +1018,40 @@
         "carbohydrates": 28,
         "protein": 36
       }
+    },
+    {
+      "id": 16,
+      "name": "pho",
+      "author": "tuan",
+      "country": "Vietnam",
+      "description": "vietnames tradition food",
+      "image": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2Farchive%2Feb84435688acfbb9c988f165b754bb3a989df6b5",
+      "ingredients": [
+        {
+          "name": "beef",
+          "quantity": 5,
+          "unit": "kg"
+        },
+        {
+          "name": "pho",
+          "quantity": 2,
+          "unit": "kg"
+        }
+      ],
+      "preparation_time": "20",
+      "cooking_time": "20",
+      "servings": "5",
+      "directions": [
+        "cook beef",
+        "cook pho",
+        "clean"
+      ],
+      "nutrition": {
+        "calories": 900,
+        "fat": 60,
+        "carbohydrates": 60,
+        "protein": 30
+      }
     }
   ]
 }

@@ -6,7 +6,7 @@ export default function FoodDetails({ popup, setPopup, detail, load }) {
   const [show, setShow] = useState(GET_IN);
 
   return popup ? (
-    <div className={`absolute z-40 w-full  ${show} flex flex-col items-center `} style={{ top: `${3 * (load - 3)}0vh` }}>
+    <div className={`absolute z-40 w-full  ${show} flex flex-col items-center `} style={{ top: `${2 * (load - 3)}0vh` }}>
       <div className={style["pop_up"]}>
         <div className="w-full h-full flex flex-wrap justify-center relative">
           <h1 className="w-full label text-center py-10">
