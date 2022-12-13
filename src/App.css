@@ -13,6 +13,9 @@
     --textwhitelight: #ececec;
     --textwhitedark: #aaa6a6;
     --bg: #4a6d37c0;
+    --btnredbg: #e89292;
+    --btnredsd1: #c89b9b;
+    --btnredsd2: #d2a0a0;
 }
 * {
     font-family: "Dancing Script", cursive;
@@ -26,7 +29,7 @@
     text-transform: capitalize;
 }
 
-/* CSS */
+/* CSS button green */
 .button {
     border-radius: 62px;
     background: var(--btnbg);
@@ -54,6 +57,37 @@
     box-shadow: 1px 1px 0px var(--btnsd1), 1px 1px 0px var(--btnsd2);
     background: var(--btntext);
     color: var(--btnbg);
+    transform: translate(3px, 3px);
+}
+
+/* CSS button red */
+.button_red {
+    border-radius: 62px;
+    background: var(--btnredbg);
+    box-shadow: 5px 5px 5px var(--btnredsd1), 5px 5px 10px var(--btnredsd2);
+    color: var(--btntext);
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: solid 4px var(--btnborder);
+    transition: all 0.25s;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.button {
+    /* text-decoration: none; */
+}
+
+.button:hover {
+    /* text-decoration: none; */
+}
+
+.button_red:not([disabled]):active {
+    /* box-shadow: #fff 10px 10px 10px 10px, #000 0px 0px 0 0px; */
+    box-shadow: 1px 1px 0px var(--btnredsd1), 1px 1px 0px var(--btnredsd2);
+    background: var(--btntext);
+    color: var(--btnredbg);
     transform: translate(3px, 3px);
 }
 
@@ -119,4 +153,24 @@ p {
     100% {
         transform: translateY(150px) rotateX(90deg);
     }
+}
+
+/* input  */
+
+input {
+    border: 2px solid var(--btnbg);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: medium;
+    color: var(--navText);
+    border-radius: 10px;
+}
+textarea{
+      border: 2px solid var(--btnbg);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: medium;
+    color: var(--navText);
+    border-radius: 10px;
+    height: 15rem;
 }
