@@ -2,7 +2,7 @@ import axios from "axios"
 import { BASE_URL, COUNTRY_URL_ALL, COUNTRY_URL_FLAG, RECIPES } from "./ultilities"
 export const handleGetCountryFlag = async (countryName) => {
     try {
-        const {data} = await axios({
+        const { data } = await axios({
             url: `${COUNTRY_URL_FLAG}${countryName}`
         })
         const { flag } = data[0]
@@ -13,7 +13,7 @@ export const handleGetCountryFlag = async (countryName) => {
 }
 export const handleGetAllCoutriesInfo = async () => {
     try {
-        const data = await axios({
+        const { data } = await axios({
             url: `${COUNTRY_URL_ALL}`
         })
         return data
@@ -33,18 +33,38 @@ export const hanldeGetAllRecipe = async () => {
     }
 }
 export const handlePostNewRecipe = async (newRecipe, navigate) => {
+    let newData = JSON.stringify(newRecipe)
+    console.log(newData)
     try {
         const { data, status } = await axios({
             url: `${BASE_URL}/${RECIPES}`,
             method: 'post',
-            data: newRecipe
+            data: newData,
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
-        if (status === 200) {
+        if (status === 201) {
             alert('add success')
             navigate('/recipe_list')
         }
     } catch (error) {
         alert('add new receipt failt')
+        console.log(error)
+    }
+}
+
+export const handleDelete = async (id) => {
+    try {
+        const { data, status } = await axios({
+            url: `${BASE_URL}/${RECIPES}/${id}`,
+            method: 'delete'
+        })
+        if (status === 200) {
+            alert(`delete id: ${id} success`)
+            window.location.reload()
+        }
+    } catch (error) {
         console.log(error)
     }
 }

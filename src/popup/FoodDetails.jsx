@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { GET_IN, GET_OUT } from "../service/ultilities";
 import style from "./fooddetails.module.css";
-export default function FoodDetails({ popup, setPopup, detail }) {
+export default function FoodDetails({ popup, setPopup, detail, load }) {
   const { name, author, country, description, image, ingredients, directions, servings, cooking_time, preparation_time } = detail;
   const [show, setShow] = useState(GET_IN);
 
   return popup ? (
-    <div className={`absolute z-40 w-full h-full ${show} flex flex-col items-center `}>
+    <div className={`absolute z-40 w-full  ${show} flex flex-col items-center `} style={{ top: `${3 * (load - 3)}0vh` }}>
       <div className={style["pop_up"]}>
         <div className="w-full h-full flex flex-wrap justify-center relative">
           <h1 className="w-full label text-center py-10">
@@ -75,7 +75,13 @@ export default function FoodDetails({ popup, setPopup, detail }) {
               </h3>
               <div className="flex flex-col gap-2 w-2/3">
                 {directions.map((item, index) => {
-                  return <p className="text-sm">{`step ${index + 1}: ${item}`}</p>;
+                  return (
+                    <p className="text-sm">
+                      {" "}
+                      <span className="text-red-300">{`step ${index + 1}`}</span>
+                      {`: ${item}`}
+                    </p>
+                  );
                 })}
               </div>
             </div>

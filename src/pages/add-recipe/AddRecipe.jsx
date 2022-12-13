@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { handleGetAllCoutriesInfo, handlePostNewRecipe, hanldeGetAllRecipe } from "../../service/sevices";
 import style from "./addrecipe.module.css";
 
 export default function AddRecipe() {
+  const navigate = useNavigate();
   const [newRecipes, setNewRecipes] = useState({
+    id: 1,
     name: "",
     author: "",
     country: "",
     description: "",
+    image: "",
     ingredients: [
       {
         name: "",
@@ -30,6 +35,45 @@ export default function AddRecipe() {
       protein: 30,
     },
   });
+  const [countries, setCountries] = useState([
+    {
+      name: "Mauritania",
+      flag: "🇲🇷",
+    },
+    {
+      name: "Argentina",
+      flag: "🇦🇷",
+    },
+  ]);
+  const findBiggestId = (data) => {
+    let temp = [];
+    data.map((item, index) => {
+      temp.push(item.id);
+    });
+    temp.sort((a, b) => b - a);
+    return temp[0];
+  };
+  useEffect(() => {
+    handleGetAllCoutriesInfo()
+      .then((data) => {
+        let newCountries = [];
+        data.map((item, index) => {
+          const name = item.name.common;
+          const flag = item.flag;
+          let temp = { name, flag };
+          newCountries.push(temp);
+        });
+
+        setCountries(newCountries);
+      })
+      .catch(console.log());
+    hanldeGetAllRecipe()
+      .then((data) => {
+        let newId = findBiggestId(data) + 1;
+        setNewRecipes({ ...newRecipes, id: newId });
+      })
+      .catch(console.log());
+  }, []);
   const addMoreIngredients = () => {
     let temp = [...newRecipes.ingredients];
     temp.push({
@@ -54,8 +98,10 @@ export default function AddRecipe() {
     temp.pop();
     setNewRecipes({ ...newRecipes, directions: temp });
   };
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(newRecipes);
+    handlePostNewRecipe(newRecipes, navigate);
   };
   const render = () => {
     let render = [];
@@ -67,8 +113,10 @@ export default function AddRecipe() {
               {i}
             </label>
             <input
+              required
               type="text"
               id={i}
+              placeholder={i}
               name={i}
               value={newRecipes[i]}
               className="w-3/4"
@@ -87,18 +135,25 @@ export default function AddRecipe() {
             <label htmlFor={`${i}`} className="text-xl text-green-400 font-bold">
               {i}
             </label>
-            <input
-              type="text"
+            <select
+              className="w-3/4"
               id={i}
               name={i}
-              value={newRecipes[i]}
-              className="w-3/4"
               onChange={(e) => {
                 let temp = { ...newRecipes };
                 temp[i] = e.target.value;
                 setNewRecipes({ ...temp });
               }}
-            />
+            >
+              {countries.map((item, index) => {
+                return (
+                  <option className="" value={item.name} key={index}>
+                    <span>{item.name}</span> ---
+                    <span>{item.flag}</span>
+                  </option>
+                );
+              })}
+            </select>
           </div>
         );
       }
@@ -109,6 +164,7 @@ export default function AddRecipe() {
               {i}
             </label>
             <textarea
+              required
               type="text"
               id={i}
               name={i}
@@ -133,6 +189,7 @@ export default function AddRecipe() {
                   calories
                 </label>
                 <input
+                  required
                   type="number"
                   id={newRecipes[i]["calories"]}
                   name={newRecipes[i]["calories"]}
@@ -148,6 +205,7 @@ export default function AddRecipe() {
               <div className="flex w-full justify-between">
                 <label htmlFor={newRecipes[i]["carbohydrates"]}> carbohydrates</label>
                 <input
+                  required
                   type="number"
                   id={newRecipes[i]["carbohydrates"]}
                   name={newRecipes[i]["carbohydrates"]}
@@ -165,6 +223,7 @@ export default function AddRecipe() {
                   fat
                 </label>
                 <input
+                  required
                   type="number"
                   id={newRecipes[i]["fat"]}
                   name={newRecipes[i]["fat"]}
@@ -182,6 +241,7 @@ export default function AddRecipe() {
                   protein
                 </label>
                 <input
+                  required
                   type="number"
                   id={newRecipes[i]["protein"]}
                   name={newRecipes[i]["protein"]}
@@ -208,6 +268,7 @@ export default function AddRecipe() {
                   <div className="w-full flex items-center justify-end gap-2 " key={index}>
                     <label htmlFor={`${item["name"]}`}>name</label>
                     <input
+                      required
                       type="text"
                       name={`${item["name"]}`}
                       id={`${item["name"]}`}
@@ -221,6 +282,7 @@ export default function AddRecipe() {
                     />
                     <label htmlFor={`${item["quantity"]}`}>quantity</label>
                     <input
+                      required
                       type="number"
                       name={`${item["quantity"]}`}
                       id={`${item["quantity"]}`}
@@ -228,12 +290,13 @@ export default function AddRecipe() {
                       className="w-20"
                       onChange={(e) => {
                         let temp = newRecipes["ingredients"];
-                        temp[index]["quantity"] =Number( e.target.value);
+                        temp[index]["quantity"] = Number(e.target.value);
                         setNewRecipes({ ...newRecipes, ingredients: temp });
                       }}
                     />
                     <label htmlFor={`${item["unit"]}`}>unit</label>
                     <input
+                      required
                       type="text"
                       name={`${item["unit"]}`}
                       id={`${item["unit"]}`}
@@ -249,22 +312,22 @@ export default function AddRecipe() {
                 );
               })}
               <div className="w-full flex justify-end gap-5">
-                <button
+                <div
                   className="button px-4"
                   onClick={() => {
                     addMoreIngredients();
                   }}
                 >
                   more ingredients +
-                </button>
-                <button
+                </div>
+                <div
                   className="button_red px-4"
                   onClick={() => {
                     removeIngredients();
                   }}
                 >
                   remove ingredients -
-                </button>
+                </div>
               </div>
             </div>
           </div>
@@ -297,22 +360,22 @@ export default function AddRecipe() {
             </div>
 
             <div className="w-full flex justify-end gap-5">
-              <button
+              <div
                 className="button px-4"
                 onClick={() => {
                   addMoreDirection();
                 }}
               >
                 more step +
-              </button>
-              <button
+              </div>
+              <div
                 className="button_red px-4"
                 onClick={() => {
                   removeDirection();
                 }}
               >
                 remove step -
-              </button>
+              </div>
             </div>
           </div>
         );
@@ -324,26 +387,20 @@ export default function AddRecipe() {
     <div className="main">
       <div className="h-full">
         <h1 className="text-center text-6xl font-semibold pb-10">add recipes</h1>
-        <div
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
           action=""
           className="w-4/5 m-auto flex flex-wrap gap-10  "
-          onSubmit={(e) => {
-            // handleSubmit(e);
-          }}
         >
           {render()}
           <div className="w-full flex justify-end">
-            <button
-              className="button_red px-4 py-2"
-              type=""
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
+            <button className="button_red px-4 py-2" type="submit">
               submit new recipes
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

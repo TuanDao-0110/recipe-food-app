@@ -165,12 +165,20 @@ input {
     color: var(--navText);
     border-radius: 10px;
 }
-textarea{
-      border: 2px solid var(--btnbg);
+textarea {
+    border: 2px solid var(--btnbg);
     padding: 0.5rem 1rem;
     font-weight: bold;
     font-size: medium;
     color: var(--navText);
     border-radius: 10px;
     height: 15rem;
+}
+select {
+    border: 2px solid var(--btnbg);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: large;
+    color: var(--navText);
+    border-radius: 10px;
 }
