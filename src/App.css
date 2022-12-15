@@ -164,6 +164,7 @@ input {
     font-size: medium;
     color: var(--navText);
     border-radius: 10px;
+
 }
 textarea {
     border: 2px solid var(--btnbg);
