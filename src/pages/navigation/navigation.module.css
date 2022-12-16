@@ -1,3 +1,4 @@
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -11,9 +12,9 @@
     transition: all 0.4s;
 }
 .nav:hover{
-    padding: 2rem 5rem;
-    
+    padding: 2rem 5rem;   
 }
+
 nav ul {
     display: flex;
 }
