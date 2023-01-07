@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import style from "./mainText.module.css";
 export default function MainText() {
   return (
@@ -8,9 +8,9 @@ export default function MainText() {
       <h1>...food project </h1>
       <p>let enjoy our food</p>
 
-      <Link to={"/recipe_list"}>
+      <NavLink to={"/recipe_list"}>
         <button className="button px-5 py-2"> let find out</button>
-      </Link>
+      </NavLink>
     </div>
   );
 }

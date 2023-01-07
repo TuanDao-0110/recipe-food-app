@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleGetAllCoutriesInfo, handlePostNewRecipe, hanldeGetAllRecipe } from "../../service/sevices";
-import style from "./addrecipe.module.css";
 
 export default function AddRecipe() {
   const navigate = useNavigate();
@@ -100,7 +99,6 @@ export default function AddRecipe() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newRecipes);
     handlePostNewRecipe(newRecipes, navigate);
   };
   const render = () => {
@@ -108,7 +106,7 @@ export default function AddRecipe() {
     for (let i in newRecipes) {
       if (typeof newRecipes[i] === "string" && i !== "country" && i !== "description") {
         render.push(
-          <div className="w-full flex justify-between items-center">
+          <div key={i} className="w-full flex justify-between items-center">
             <label htmlFor={`${i}`} className="text-xl text-green-400 font-bold">
               {i}
             </label>
@@ -131,7 +129,7 @@ export default function AddRecipe() {
       }
       if (i === "country") {
         render.push(
-          <div className="w-full flex justify-between items-center">
+          <div key={i} className="w-full flex justify-between items-center">
             <label htmlFor={`${i}`} className="text-xl text-green-400 font-bold">
               {i}
             </label>
@@ -148,8 +146,7 @@ export default function AddRecipe() {
               {countries.map((item, index) => {
                 return (
                   <option className="" value={item.name} key={index}>
-                    <span>{item.name}</span> ---
-                    <span>{item.flag}</span>
+                    {item.name}---{item.flag}
                   </option>
                 );
               })}
@@ -159,7 +156,7 @@ export default function AddRecipe() {
       }
       if (i === "description") {
         render.push(
-          <div className="w-full flex justify-between items-center">
+          <div className="w-full flex justify-between items-center" key={i}>
             <label htmlFor={`${i}`} className="text-xl text-green-400 font-bold">
               {i}
             </label>
@@ -181,7 +178,7 @@ export default function AddRecipe() {
       }
       if (i === "nutrition") {
         render.push(
-          <div className="w-full flex flex-wrap gap-5 justify-between">
+          <div key={i} className="w-full flex flex-wrap gap-5 justify-between">
             <label className="text-xl text-green-400 font-bold">{i}</label>
             <div className="w-2/3 flex  items-center justify-between gap-5 flex-wrap ">
               <div className="flex w-full justify-between">
@@ -260,7 +257,7 @@ export default function AddRecipe() {
       }
       if (i === "ingredients") {
         render.push(
-          <div className="w-full flex flex-wrap gap-5 justify-between">
+          <div key={i} className="w-full flex flex-wrap gap-5 justify-between">
             <label className="text-xl text-green-400 font-bold">{i}</label>
             <div className="w-4/5 flex  items-center gap-5 flex-wrap ">
               {newRecipes[i]?.map((item, index) => {
@@ -335,7 +332,7 @@ export default function AddRecipe() {
       }
       if (i === "directions") {
         render.push(
-          <div className="w-full flex flex-wrap gap-5 justify-between">
+          <div key={i} className="w-full flex flex-wrap gap-5 justify-between">
             <label className="text-xl text-green-400 font-bold">{i}</label>
             <div className="w-2/3 flex  items-center gap-5 flex-wrap ">
               {newRecipes[i].map((item, index) => {

@@ -24,7 +24,7 @@ export const handleGetAllCoutriesInfo = async () => {
 
 export const hanldeGetAllRecipe = async () => {
     try {
-        const { data, status } = await axios({
+        const { data } = await axios({
             url: `${BASE_URL}/${RECIPES}`
         })
         return data
@@ -34,9 +34,8 @@ export const hanldeGetAllRecipe = async () => {
 }
 export const handlePostNewRecipe = async (newRecipe, navigate) => {
     let newData = JSON.stringify(newRecipe)
-    console.log(newData)
     try {
-        const { data, status } = await axios({
+        const { status } = await axios({
             url: `${BASE_URL}/${RECIPES}`,
             method: 'post',
             data: newData,
@@ -56,7 +55,7 @@ export const handlePostNewRecipe = async (newRecipe, navigate) => {
 
 export const handleDelete = async (id) => {
     try {
-        const { data, status } = await axios({
+        const { status } = await axios({
             url: `${BASE_URL}/${RECIPES}/${id}`,
             method: 'delete'
         })

@@ -1052,6 +1052,40 @@
         "carbohydrates": 60,
         "protein": 30
       }
+    },
+    {
+      "id": 17,
+      "name": "sushi",
+      "author": "tuan",
+      "country": "Japan",
+      "description": "Sushi is a Japanese dish of prepared vinegared rice (鮨飯, sushi-meshi), usually with some sugar and salt, accompanied by a variety of ingredients (ねた, .)",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Various_sushi%2C_beautiful_October_night_at_midnight.jpg",
+      "ingredients": [
+        {
+          "name": "rice",
+          "quantity": 4,
+          "unit": "4"
+        },
+        {
+          "name": "42",
+          "quantity": 44,
+          "unit": "42"
+        }
+      ],
+      "preparation_time": "30",
+      "cooking_time": "30",
+      "servings": "30",
+      "directions": [
+        "4",
+        "5",
+        "34"
+      ],
+      "nutrition": {
+        "calories": 900,
+        "fat": 60,
+        "carbohydrates": 60,
+        "protein": 30
+      }
     }
   ]
 }

@@ -7,10 +7,10 @@ const selectList = ["name", "author", "country"];
 export default function RecipesList() {
   const [defaultState, setDefaulState] = useState();
   const [state, setState] = useState();
-  const [load, setLoad] = useState(3);
+  const [load, setLoad] = useState(9);
   const [popup, setPopup] = useState(false);
   const [detail, setDetail] = useState({});
-  const [selectType, setSelectType] = useState("");
+  const [selectType, setSelectType] = useState("name");
   useEffect(() => {
     hanldeGetAllRecipe()
       .then((data) => {
@@ -41,7 +41,7 @@ export default function RecipesList() {
           <input
             type="text"
             className="w-3/4 text-3xl"
-            placeholder="find food name"
+            placeholder={`find the food by ${selectType}`}
             disabled={selectType === "" ? true : false}
             onChange={(e) => {
               handleSearch(e.target.value);
@@ -56,12 +56,17 @@ export default function RecipesList() {
               onChange={(e) => {
                 setSelectType(e.target.value);
               }}
+              defaultValue={"name"}
             >
-              <option value="none" selected disabled hidden>
+              <option value="none" disabled hidden>
                 Select an Option
               </option>
               {selectList.map((item, index) => {
-                return <option value={item}>{item}</option>;
+                return (
+                  <option value={item} key={index}>
+                    {item}
+                  </option>
+                );
               })}
             </select>
           </div>
@@ -79,7 +84,7 @@ export default function RecipesList() {
               setLoad(load + 3);
             }}
           >
-            <span class="material-symbols-outlined">expand_more load {`more`}</span>
+            <span className="material-symbols-outlined">expand_more load {`more`}</span>
           </button>
         </div>
       </div>

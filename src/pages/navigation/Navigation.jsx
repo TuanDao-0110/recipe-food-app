@@ -6,7 +6,7 @@ export default function Navigation() {
     <nav className={style["nav"]}>
       <div className="">
         <Link to={"recipe_list"}>
-          <img src={require("../../img/logo.png")} alt="" width={"80px"}  srcset="" />
+          <img src={require("./logo.png")} alt="" width={"80px"} srcSet="" />
         </Link>
       </div>
       <ul className="">
