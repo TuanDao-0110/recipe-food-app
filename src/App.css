@@ -65,7 +65,7 @@
 
 
 .button_red:not([disabled]):active {
-    box-shadow: 1px 1px 0px var(--btnredsd1), 1px 1px 0px var(--btnredsd2);
+    box-shadow: 1px 1px 0 var(--btnredsd1), 1px 1px 0 var(--btnredsd2);
     background: var(--btntext);
     color: var(--btnredbg);
     transform: translate(3px, 3px);

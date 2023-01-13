@@ -60,7 +60,7 @@ export const handleDelete = async (id) => {
             method: 'delete'
         })
         if (status === 200) {
-            alert(`delete id: ${id} success`)
+           window.alert(`delete id: ${id} success`)
             window.location.reload()
         }
     } catch (error) {

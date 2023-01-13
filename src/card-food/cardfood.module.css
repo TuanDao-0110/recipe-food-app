@@ -43,7 +43,7 @@
 .flag {
     /* From https://css.glass */
     position: absolute;
-    top: 0rem;
+    top: 0;
     right: 1rem;
     font-weight: bold;
     color: var(--headerlight);
