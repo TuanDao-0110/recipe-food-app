@@ -17,7 +17,7 @@ export default function RecipesList() {
         setDefaulState(data);
         setState(data);
       })
-      .catch(console.log());
+      .catch((err) => alert(err));
   }, []);
   const handleSearch = (value) => {
     if (!value) {
