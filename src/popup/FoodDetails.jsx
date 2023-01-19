@@ -59,7 +59,7 @@ export default function FoodDetails({ popup, setPopup, detail, load }) {
                 <tbody className="text-green-100 text-sm">
                   {ingredients.map((item, index) => {
                     return (
-                      <tr>
+                      <tr key={index}>
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
                         <td>{item.unit}</td>
@@ -76,7 +76,7 @@ export default function FoodDetails({ popup, setPopup, detail, load }) {
               <div className="flex flex-col gap-2 w-2/3">
                 {directions.map((item, index) => {
                   return (
-                    <p className="text-sm">
+                    <p className="text-sm" key={index}>
                       {" "}
                       <span className="text-red-300">{`step ${index + 1}`}</span>
                       {`: ${item}`}
