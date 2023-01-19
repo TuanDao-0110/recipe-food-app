@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ConfirmDelete from "../popup/ConfirmDelete";
 import { handleDelete, handleGetCountryFlag } from "../service/sevices";
 import style from "./cardfood.module.css";
-export default function CardFood({ item, setPopup, setDetail }) {
+export default function CardFood({ item, setPopup, setDetail, handleScroll}) {
   const { country, name, cooking_time, nutrition, image, id } = item;
   const [flagState, setFlagState] = useState("  🇹🇭");
   const [deleteConfirm, setDeleteConfirm] = useState(false);
@@ -41,6 +41,7 @@ export default function CardFood({ item, setPopup, setDetail }) {
               onClick={() => {
                 setDetail(item);
                 setPopup(true);
+                handleScroll();
               }}
               className="button text-sm p-2 "
             >

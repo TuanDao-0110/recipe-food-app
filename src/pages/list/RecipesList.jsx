@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CardFood from "../../card-food/CardFood";
 import FoodDetails from "../../popup/FoodDetails";
 import { hanldeGetAllRecipe } from "../../service/sevices";
-import style from "./recipeslist.module.css";
 const selectList = ["name", "author", "country"];
 export default function RecipesList() {
   const [defaultState, setDefaulState] = useState();
@@ -33,6 +32,13 @@ export default function RecipesList() {
     }
   };
 
+ 
+   const [screenY, setScreenY] = useState(0);
+
+   const handleScroll = () => {
+     // Your scroll event handling logic goes here
+     setScreenY(window.pageYOffset);
+   };
   return (
     <div className="main">
       <div className="h-full">
@@ -72,9 +78,9 @@ export default function RecipesList() {
           </div>
         </div>
         <div className="flex flex-wrap gap-5 mt-5 justify-center h-full relative">
-          <FoodDetails popup={popup} load={load} setPopup={setPopup} detail={detail} />
+          <FoodDetails popup={popup} load={load} setPopup={setPopup} detail={detail} screenY={screenY} />
           {state?.slice(0, load).map((item, key) => {
-            return <CardFood key={key} item={item} setPopup={setPopup} setDetail={setDetail}></CardFood>;
+            return <CardFood key={key} item={item} setPopup={setPopup} setDetail={setDetail} handleScroll={handleScroll}></CardFood>;
           })}
         </div>
         <div className="flex justify-center mt-10 cursor-pointer">
