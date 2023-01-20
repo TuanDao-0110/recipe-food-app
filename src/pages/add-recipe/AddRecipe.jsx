@@ -46,7 +46,7 @@ export default function AddRecipe() {
   ]);
   const findBiggestId = (data) => {
     let temp = [];
-    data.map((item, index) => {
+    data?.map((item, index) => {
       temp.push(item.id);
     });
     temp.sort((a, b) => b - a);
@@ -56,7 +56,7 @@ export default function AddRecipe() {
     handleGetAllCoutriesInfo()
       .then((data) => {
         let newCountries = [];
-        data.map((item, index) => {
+        data?.map((item, index) => {
           const name = item.name.common;
           const flag = item.flag;
           let temp = { name, flag };
@@ -143,7 +143,7 @@ export default function AddRecipe() {
                 setNewRecipes({ ...temp });
               }}
             >
-              {countries.map((item, index) => {
+              {countries?.map((item, index) => {
                 return (
                   <option className="" value={item.name} key={index}>
                     {item.name}---{item.flag}
@@ -335,7 +335,7 @@ export default function AddRecipe() {
           <div key={i} className="w-full flex flex-wrap gap-5 justify-between">
             <label className="text-xl text-green-400 font-bold">{i}</label>
             <div className="w-2/3 flex  items-center gap-5 flex-wrap ">
-              {newRecipes[i].map((item, index) => {
+              {newRecipes[i]?.map((item, index) => {
                 return (
                   <div className="w-full justify-end flex gap-5 items-center" key={index}>
                     <label htmlFor={`step${index}`}>step {index + 1}</label>

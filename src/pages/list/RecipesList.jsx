@@ -67,7 +67,7 @@ export default function RecipesList() {
               <option value="none" disabled hidden>
                 Select an Option
               </option>
-              {selectList.map((item, index) => {
+              {selectList?.map((item, index) => {
                 return (
                   <option value={item} key={index}>
                     {item}

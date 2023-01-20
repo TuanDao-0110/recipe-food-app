@@ -57,7 +57,7 @@ export default function FoodDetails({ popup, setPopup, detail, screenY }) {
                   </tr>
                 </thead>
                 <tbody className="text-green-100 text-sm">
-                  {ingredients.map((item, index) => {
+                  {ingredients?.map((item, index) => {
                     return (
                       <tr key={index}>
                         <td>{item.name}</td>
@@ -74,7 +74,7 @@ export default function FoodDetails({ popup, setPopup, detail, screenY }) {
                 Cooking step:
               </h3>
               <div className="flex flex-col gap-2 w-2/3">
-                {directions.map((item, index) => {
+                {directions?.map((item, index) => {
                   return (
                     <p className="text-sm" key={index}>
                       {" "}
