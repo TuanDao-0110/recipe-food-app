@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import ConfirmDelete from "../popup/ConfirmDelete";
 import { handleDelete, handleGetCountryFlag } from "../service/sevices";

@@ -19,6 +19,9 @@
 .card .content {
     /* width: 80%; */
     margin: auto;
+    display: flex;
+    margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .card img:hover {
@@ -50,16 +53,10 @@
     font-size: 3rem;
 }
 
-
-.card .content {
-    display: flex;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-}
 .card .content h1 {
     color: var(--headerlight);
     font-weight: bolder;
-    font-size:larger;
+    font-size: larger;
 }
 
 .card .details {

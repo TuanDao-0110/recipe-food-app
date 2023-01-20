@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import MainText from "../main-text/MainText";
 import style from "./home.module.css";
