@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleGetAllCoutriesInfo, handlePostNewRecipe, hanldeGetAllRecipe } from "../../service/sevices";
@@ -46,9 +47,10 @@ export default function AddRecipe() {
   ]);
   const findBiggestId = (data) => {
     let temp = [];
-    data?.map((item, index) => {
+
+    for (let item of data) {
       temp.push(item.id);
-    });
+    }
     temp.sort((a, b) => b - a);
     return temp[0];
   };
@@ -56,12 +58,13 @@ export default function AddRecipe() {
     handleGetAllCoutriesInfo()
       .then((data) => {
         let newCountries = [];
-        data?.map((item, index) => {
+
+        for (let item of data) {
           const name = item.name.common;
           const flag = item.flag;
           let temp = { name, flag };
           newCountries.push(temp);
-        });
+        }
 
         setCountries(newCountries);
       })

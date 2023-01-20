@@ -57,12 +57,11 @@
     flex-wrap: wrap;
 }
 .card .content h1 {
-    color: var(--headerdark);
+    color: var(--headerlight);
     font-weight: bolder;
     font-size:larger;
 }
 
 .card .details {
     margin-top: 1rem;
-    /* font-size: small; */
 }

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { GET_IN, GET_OUT } from "../service/ultilities";
 import style from "./fooddetails.module.css";
 export default function FoodDetails({ popup, setPopup, detail, screenY }) {
@@ -6,7 +6,7 @@ export default function FoodDetails({ popup, setPopup, detail, screenY }) {
   const [show, setShow] = useState(GET_IN);
 
   return popup ? (
-    <div className={`absolute z-40 w-full  ${show} flex flex-col items-center `} style={{ top: `${screenY-500}px` }}>
+    <div className={`absolute z-40 w-full  ${show} flex flex-col items-center `} style={{ top: `${screenY}px` }}>
       <div className={style["pop_up"]}>
         <div className="w-full h-full flex flex-wrap justify-center relative">
           <h1 className="w-full label text-center py-10">

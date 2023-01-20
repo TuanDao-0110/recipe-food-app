@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import ConfirmDelete from "../popup/ConfirmDelete";
 import { handleDelete, handleGetCountryFlag } from "../service/sevices";
 import style from "./cardfood.module.css";
-export default function CardFood({ item, setPopup, setDetail, handleScroll}) {
+export default function CardFood({ item, setPopup, setDetail, handleScroll }) {
   const { country, name, cooking_time, nutrition, image, id } = item;
   const [flagState, setFlagState] = useState("  🇹🇭");
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   useEffect(() => {
     handleGetCountryFlag(country)
       .then((flag) => setFlagState(flag))
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err));
   }, [country]);
   const renderNutrition = () => {
     let render = [];
@@ -26,7 +26,7 @@ export default function CardFood({ item, setPopup, setDetail, handleScroll}) {
       <div className={style["title"]}>{country} </div>
       <div className={style["flag"]}>{flagState}</div>
       <div className={style["content"]}>
-        <h1 className=" w-full ">{name}</h1>
+        <h1 className="w-full ">{name}</h1>
         <div className={style["details"]}>
           <p className="text-base">
             <span className="material-symbols-outlined  ">alarm_on</span> <span>{cooking_time} mins</span>
