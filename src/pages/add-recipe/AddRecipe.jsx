@@ -65,16 +65,20 @@ export default function AddRecipe() {
           newCountries.push(temp);
         }
 
-        setCountries(newCountries);
+        setCountries([...newCountries]);
       })
       .catch((err) => alert(err));
     hanldeGetAllRecipe()
       .then((data) => {
         let newId = findBiggestId(data) + 1;
-        setNewRecipes({ ...newRecipes, id: newId });
+        // setNewRecipes({ ...newRecipes, id: newId });
+        setNewRecipes((prev) => {
+          return { ...prev, id: newId };
+        });
       })
       .catch((err) => alert(err));
   }, []);
+
   const addMoreIngredients = () => {
     let temp = [...newRecipes.ingredients];
     temp.push({
