@@ -32,7 +32,11 @@ npm start
 npm run server
 
 ```
+3. use con use 1 comment line to run both back end and font end server. 
 
+```
+npm run dev
+```
 ## Remember to run both terminal in seperate terminal. 
 ---
 # application features: 
