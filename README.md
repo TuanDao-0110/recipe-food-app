@@ -98,8 +98,7 @@ graph LR;
 
 ```
 2. Test fetching 
-<!-- 1. [x] fetching all recipes information and error
-2. [x] feching all country infor and error -->
+
 ```mermaid
 sequenceDiagram
     participant handleGetAllRecipe
@@ -123,7 +122,7 @@ sequenceDiagram
 
 ```
 3. Test add Recipes Component
-```
+```mermaid
 sequenceDiagram
     participant Test as Test
     participant React as React
@@ -182,25 +181,7 @@ sequenceDiagram
 2. [x] check all element show when server success load
 3. [x] check if server error
 4. [x] test details button, when it click, i can render those food recipes. 
-```mermaid 
-BrowserRouter ---> RecipesList
 
-RecipesList ---> rest
-
-rest.get('http://localhost:4000/recipes') <----- RecipesList
-
-rest <------> rest.get('http://localhost:4000/recipes')
-    |
-    |-----> JSON data of recipe
-    |
-    |<----- JSON data of recipe
-    |
-    |<------ rest.get('https://restcountries.com/v3.1/name/Italy')
-
-rest.get('https://restcountries.com/v3.1/name/Italy') <----- RecipesList
-
-rest.get('https://restcountries.com/v3.1/name/Italy') <----- JSON data of country information
-```
 ## E2E Testing
 1. Input test: 
 
