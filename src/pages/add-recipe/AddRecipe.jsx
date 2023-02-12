@@ -67,7 +67,9 @@ export default function AddRecipe() {
 
         setCountries([...newCountries]);
       })
-      .catch((err) => alert(err));
+      .catch((err) => {
+        throw err;
+      });
     hanldeGetAllRecipe()
       .then((data) => {
         let newId = findBiggestId(data) + 1;
@@ -76,7 +78,9 @@ export default function AddRecipe() {
           return { ...prev, id: newId };
         });
       })
-      .catch((err) => alert(err));
+      .catch((err) => {
+        throw err;
+      });
   }, []);
 
   const addMoreIngredients = () => {

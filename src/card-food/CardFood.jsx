@@ -10,7 +10,9 @@ export default function CardFood({ item, setPopup, setDetail, handleScroll }) {
   useEffect(() => {
     handleGetCountryFlag(country)
       .then((flag) => setFlagState(flag))
-      .catch((err) => alert(err));
+      .catch((err) => {
+        throw err;
+      });
   }, [country]);
   const renderNutrition = () => {
     let render = [];

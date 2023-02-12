@@ -7,21 +7,23 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
+    "enzyme": "^3.11.0",
     "moment": "^2.29.4",
+    "msw": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
     "server": "json-server -p4000 --watch db.json",
-    "dev":"react-scripts start & json-server -p4000 --watch db.json "
+    "dev": "react-scripts start & json-server -p4000 --watch db.json ",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^12.5.1",
+    "jest": "^27.5.1",
     "json-server": "^0.17.1",
     "tailwindcss": "^3.2.4"
   }

@@ -16,7 +16,9 @@ export default function RecipesList() {
         setDefaulState(data);
         setState(data);
       })
-      .catch((err) => alert(err));
+      .catch((err) => {
+        throw err;
+      });
   }, []);
   const handleSearch = (value) => {
     if (!value) {
@@ -32,13 +34,12 @@ export default function RecipesList() {
     }
   };
 
- 
-   const [screenY, setScreenY] = useState(0);
+  const [screenY, setScreenY] = useState(0);
 
-   const handleScroll = () => {
-     // Your scroll event handling logic goes here
-     setScreenY(window.pageYOffset);
-   };
+  const handleScroll = () => {
+    // Your scroll event handling logic goes here
+    setScreenY(window.pageYOffset);
+  };
   return (
     <div className="main">
       <div className="h-full">

@@ -8,7 +8,7 @@ export const handleGetCountryFlag = async (countryName) => {
         const { flag } = data[0]
         return flag
     } catch (error) {
-        alert(error)
+        alert (error)
     }
 }
 export const handleGetAllCoutriesInfo = async () => {
@@ -18,7 +18,7 @@ export const handleGetAllCoutriesInfo = async () => {
         })
         return data
     } catch (error) {
-        alert(error)
+        alert (error)
     }
 }
 
@@ -29,7 +29,7 @@ export const hanldeGetAllRecipe = async () => {
         })
         return data
     } catch (error) {
-        alert(error)
+        alert (error)
     }
 }
 export const handlePostNewRecipe = async (newRecipe, navigate) => {
@@ -48,8 +48,8 @@ export const handlePostNewRecipe = async (newRecipe, navigate) => {
             navigate('/recipe_list')
         }
     } catch (error) {
-        alert('add new receipt failt')
-        alert(error)
+        // throw('add new receipt failt')
+        alert (error)
     }
 }
 
@@ -60,10 +60,10 @@ export const handleDelete = async (id) => {
             method: 'delete'
         })
         if (status === 200) {
-           window.alert(`delete id: ${id} success`)
+            window.alert(`delete id: ${id} success`)
             window.location.reload()
         }
     } catch (error) {
-        alert(error)
+        alert (error)
     }
 }
