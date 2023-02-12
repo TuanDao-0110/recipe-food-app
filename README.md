@@ -80,22 +80,22 @@ npm run cypress:open
 1. Tesing all App and button exists and work 
 ```mermaid
 graph LR
-    Testing All the Button Exist in App --> render
-    render --> BrowserRouter
-    BrowserRouter --> App
-    App --> homeBtn
-    App --> addRouterButton
-    App --> recipeRouteButton
-    App --> findoutBtn
-    homeBtn --> expect(homeBtn).toBeTruthy()
-    addRouterButton --> expect(addRouterButton).toBeTruthy()
-    recipeRouteButton --> expect(recipeRouteButton).toBeTruthy()
-    findoutBtn --> expect(findoutBtn).toBeTruthy()
-    homeBtn --> userEvent.click(homeBtn)
-    recipeRouteButton --> userEvent.click(recipeRouteButton)
-    addRouterButton --> userEvent.click(addRouterButton)
-    findoutBtn --> userEvent.click(findoutBtn)
-
+    HomeBtn[Button : Home] --> RouteA[Route : Home]
+    RecipeListBtn[Button : Recipe List] --> RouteB[Route : Recipe List]
+    AddRecipeBtn[Button : Add Recipe] --> RouteC[Route : Add Recipe]
+    LetFindOutBtn[Button : Let Find Out] --> RouteD[Route : Let Find Out]
+    
+    subgraph Testing
+        CheckHomeBtn[Check Home Button Exist]
+        CheckRecipeListBtn[Check Recipe List Button Exist]
+        CheckAddRecipeBtn[Check Add Recipe Button Exist]
+        CheckLetFindOutBtn[Check Let Find Out Button Exist]
+    end
+    
+    CheckHomeBtn --> HomeBtn
+    CheckRecipeListBtn --> RecipeListBtn
+    CheckAddRecipeBtn --> AddRecipeBtn
+    CheckLetFindOutBtn --> LetFindOutBtn
 ```
 2. Test fetching 
 
