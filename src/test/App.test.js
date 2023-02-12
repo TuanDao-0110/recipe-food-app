@@ -1,9 +1,7 @@
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
-import { setupServer } from 'msw/node'
-import { rest } from 'msw'
+import { render, screen, } from '@testing-library/react'
 import App from '../App'
-import { BrowserRouter, Route, Routes, MemoryRouter } from 'react-router-dom'
+import { BrowserRouter, } from 'react-router-dom'
 import userEvent from '@testing-library/user-event';
 
 

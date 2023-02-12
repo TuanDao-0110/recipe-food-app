@@ -1,14 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import RecipesList from "../pages/list/RecipesList";
-import axios from 'axios';
-import { BASE_URL, RECIPES } from "../service/ultilities";
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { async } from "q";
-import AddRecipe from "../pages/add-recipe/AddRecipe";
-import { hanldeGetAllRecipe } from "../service/sevices";
 import { act } from "react-dom/test-utils";
 // set up temporatory server
 const recipeHandler = [
@@ -301,6 +297,7 @@ beforeAll(() => server.listen())
 
 // Reset any runtime request handlers we may add during the tests.
 afterEach(() => server.resetHandlers())
+afterAll(() => server.close())
 
 // Disable API mocking after the tests are done.
 
@@ -329,19 +326,17 @@ test('check when to click detail button and show detail pop up', async () => {
         const detailNew = screen.findByText(/Maria Valentina/i)
         expect(detailNew).toBeTruthy()
     })
+
 })
-afterAll(() => server.close())
-
-test('api fail fetching', async () => {
-    // 1. set fail server: 
-    // server.use(
-    //     rest.get('http://localhost:4000/recipes', (req, res, ctx) => {
-    //         return res(ctx.status(500))
-    //     })
-    // )
-    // render(<RecipesList />, { wrapper: BrowserRouter })
 
 
-    // global.alert = jest.fn()
-    // expect(await global.alert('fail')).toBeTruthy()
+test('server fail', async () => {
+    server.use(
+
+        rest.get('http://localhost:4000/recipes', (req, res, ctx) => {
+            return res(ctx.status(500))
+        })
+    )
+    render(<RecipesList />, { wrapper: BrowserRouter })
+    expect(await screen.findByText('details')).not.toBeInTheDocument()
 })
