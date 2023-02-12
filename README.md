@@ -79,7 +79,7 @@ npm run cypress:open
 
 1. Tesing all App and button exists and work 
 ```mermaid
-graph LR;
+graph LR
     Testing All the Button Exist in App --> render
     render --> BrowserRouter
     BrowserRouter --> App
